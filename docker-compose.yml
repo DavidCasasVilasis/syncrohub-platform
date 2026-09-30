@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: syncrohub-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./syncrohub.db
+      - PROJECT_NAME=SyncroHub Smart Building Platform
+    volumes:
+      - backend-data:/app
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: syncrohub-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # Descomentar para simular concentración continua de telemetría IoT
+  # simulator:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   command: ["uv", "run", "python", "simulator/iot_simulator.py", "--interval", "10"]
+  #   depends_on:
+  #     - backend
+  #   restart: unless-stopped
+
+volumes:
+  backend-data:
