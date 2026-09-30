@@ -1,4 +1,4 @@
-# 🏢 SyncroHub - Smart Building & Energy Management Platform
+# SyncroHub - Smart Building & Energy Management Platform
 
 [![Backend Tests](https://img.shields.io/badge/Pytest-10%2F10%20Passing-emerald?style=flat-square&logo=pytest)](specs/03-task-breakdown.md)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.142-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
@@ -11,23 +11,23 @@
 
 ---
 
-## 📸 Vista de la Plataforma
+## Vista de la Plataforma
 
 ```
 +----------------------------------------------------------------------------------------------------+
-| ⚡ SyncroHub [Smart BMS]       [ Torre Castellana (Madrid) v ]  [⚡ Test: Inyectar Pico IoT] [Swagger API] |
+|  SyncroHub [Smart BMS]       [ Torre Castellana (Madrid) v ]  [ Test: Inyectar Pico IoT] [Swagger API] |
 +----------------------------------------------------------------------------------------------------+
 | [ POTENCIA ACTUAL ]          [ CONSUMO HOY ]             [ COSTE ESTIMADO ]       [ ESTADO TÉCNICO ]|
 |  114.2 kW (63.4% carga)       1.420 kWh (-4.2% vs ayer)   218.40 € (355 kg CO2)   2 Alertas | 1 Ticket|
 +----------------------------------------------------------------------------------------------------+
 |                                                           |                                        |
-|  📈 CURVA DE CARGA Y DEMANDA DE POTENCIA (kW)             |  🏢 DISTRIBUCIÓN POR ZONAS             |
+|   CURVA DE CARGA Y DEMANDA DE POTENCIA (kW)               |    DISTRIBUCIÓN POR ZONAS             |
 |  [Potencia Total | Por Zonas]                 [24h | 48h] |  • HVAC & Climatización (48.2 kW)     |
 |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  |  • Data Center Servidores (32.1 kW)    |
 |  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  |  • Oficinas y Tomas Fuerza (21.4 kW)   |
 |                                                           |  • Alumbrado Smart DALI (12.5 kW)      |
 +----------------------------------------------------------------------------------------------------+
-|  🚨 ALERTAS IoT & MANTENIMIENTO PREVENTIVO                                                         |
+|     ALERTAS IoT & MANTENIMIENTO PREVENTIVO                                                         |
 |  • [CRITICAL] Sobrecarga detectada en Enfriadora Chiller A (76.8 kW) -> [Crear Ticket Mto.]       |
 |  • [TICKET #1] Revisión correctiva compresor Chiller A (Asignado a Carlos Sánchez) [EN PROCESO]    |
 +----------------------------------------------------------------------------------------------------+
@@ -35,7 +35,7 @@
 
 ---
 
-## 🏛️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 El proyecto ha sido concebido bajo la metodología **Spec-Driven Development (SDD)** inspirada en [GitHub Spec-Kit](https://github.com/github/spec-kit) y el ciclo de trabajo riguroso de [Superpowers](https://github.com/obra/superpowers):
 
@@ -81,7 +81,7 @@ graph TD
 
 ---
 
-## 🚀 Funcionalidades Clave
+## Funcionalidades Clave
 
 1. **Gestión Jerárquica de Edificios y Zonas:** Modelado relacional completo: Edificio $\rightarrow$ Zonas funcionales (HVAC, IT, Oficinas, Alumbrado) $\rightarrow$ Contadores IoT.
 2. **Ingesta de Telemetría en Tiempo Real:** Endpoint optimizado para lotes (`POST /api/v1/telemetry/readings`) con validación Pydantic estricta y actualización del heartbeat del dispositivo.
@@ -97,7 +97,7 @@ graph TD
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 | Capa | Tecnologías |
 | :--- | :--- |
@@ -108,7 +108,7 @@ graph TD
 
 ---
 
-## ⚡ Arranque Rápido
+## Arranque Rápido
 
 ### Opción 1: Con Docker Compose (Recomendado - 30 segundos)
 
@@ -151,7 +151,7 @@ npm run dev
 
 ---
 
-## 🧪 Pruebas Automatizadas (Pytest)
+## Pruebas Automatizadas (Pytest)
 
 El backend cuenta con una suite completa de pruebas unitarias y de integración que verifican la API y los algoritmos:
 
@@ -178,7 +178,7 @@ tests/test_api_endpoints.py::test_billing_estimate PASSED                [100%]
 
 ---
 
-## 📡 Simulador de Concentrador IoT (CLI)
+## Simulador de Concentrador IoT (CLI)
 
 Puedes ejecutar el generador de telemetría continua para simular tráfico IoT real hacia el backend:
 
@@ -192,7 +192,7 @@ uv run python simulator/iot_simulator.py --spike --once
 
 ---
 
-## 📑 Especificaciones del Proyecto (Spec-Kit)
+## Especificaciones del Proyecto (Spec-Kit)
 
 Toda la documentación técnica y el diseño previo se encuentran versionados en la carpeta `specs/`:
 - [`specs/01-specification.md`](specs/01-specification.md): Requisitos de negocio, actores y entidades de dominio.
