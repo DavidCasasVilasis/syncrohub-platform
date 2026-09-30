@@ -9,7 +9,17 @@ import type {
   BillingEstimate,
 } from '../types';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api/v1';
+// Normalizar API_BASE: limpia barras finales y asegura /api/v1
+const getNormalizedApiBase = (): string => {
+  const envUrl = (import.meta.env.VITE_API_URL as string | undefined)?.trim();
+  if (!envUrl) {
+    return 'http://127.0.0.1:8000/api/v1';
+  }
+  const clean = envUrl.replace(/\/+$/, '');
+  return clean.endsWith('/api/v1') ? clean : `${clean}/api/v1`;
+};
+
+export const API_BASE = getNormalizedApiBase();
 
 export const api = {
   // Edificios

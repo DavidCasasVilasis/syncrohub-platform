@@ -37,11 +37,12 @@ Diseñada para centralizar telemetría de contadores, detección de anomalías, 
     redoc_url="/redoc",
 )
 
-# Configuración de CORS
+# Configuración de CORS universal (admite cualquier dominio de Vercel, Render o localhost)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.BACKEND_CORS_ORIGINS,
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_origin_regex=r"https?://.*",
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
